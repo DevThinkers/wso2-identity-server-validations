@@ -1,0 +1,103 @@
+section.md-content {
+  padding: 30px 20px;
+  color: white;
+  background: url(http://www.devthinkers.com/assets/images/home/bg-home.png);
+  background-size: cover;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.frase {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+
+body, html {
+  height: 100%;
+}
+
+.body {
+  max-width: 1366px;
+  margin: 0 auto;
+  height: 100%
+
+}
+
+.verticalbar {
+  font-size: 45px;
+  font-weight: bolder;
+  font-style: inherit;
+  font-family: RobotoDraft, Roboto, "Helvetica Neue", sans-serif;
+  margin-left: 8px;
+  margin-right: -2px;
+}
+.text {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.cover {
+  font-family: "Century Gothic", sans-serif;
+  text-align: left;
+  font-size: 250%;
+  letter-spacing: 2px;
+  line-height: 85%;
+  margin: 10% 0%;
+
+}
+.light {
+  width: 100%;
+  max-width: 200px;
+  min-width: 150px;
+  padding-bottom: 20px;
+  display: block;
+}
+
+.card-post {
+  width: 100%;
+  min-width: 200px;
+  max-width: 600px;
+  min-height: 350px;
+  margin-bottom: 10px;
+  background: white;
+  position: relative;
+  top: 0px;
+  -webkit-transition: top 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: top 0.5s;
+
+  .descricao-servico {
+    width: 90%;
+    height: 100px;
+    text-align: left;
+    color: black !important;
+  }
+
+  md-card-title {
+    margin-top: -10px;
+  }
+
+}
+
+.card-post:hover {
+  top: -10px;
+}
+
+a, a:link, a:active, a:visited {
+  color: black;
+  text-decoration: none;
+  cursor: hand;
+}
+// finish here
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .cover {
+    text-align: center ;
+    font-size: 150%;
+    line-height: 25px;
+    letter-spacing: normal;
+    margin: auto 10px 0%;
+  }
+  .light {
+    width: 40%;
+    max-width: 140px;
+  }
+}

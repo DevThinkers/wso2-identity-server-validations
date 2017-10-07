@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Joao Emilio" />
+        <meta name="contact" content="joaoemilio@devthinkers.com" />
+        <title>DevThinkers - WSO2 Identity Server Validations</title>
+        <base href="/">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="http://www.devthinkers.com/assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="http://www.devthinkers.com/assets/ico/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="http://www.devthinkers.com/assets/ico/favicon-16x16.png" sizes="16x16">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link rel="mask-icon" href="http://www.devthinkers.com/assets/ico/safari-pinned-tab.svg" color="#1976d2">
+        <link rel="shortcut icon" href="http://www.devthinkers.com/assets/ico/favicon.ico">
+        <link rel="manifest" href="http://www.devthinkers.com/assets/manifest.json">
+        <meta name="application-name" content="WSO2 Identity Server Validations">
+        <meta name="theme-color" content="#1976d2">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script>
+            // get this id from wso2 is management console at:
+            // Main -> Service Providers -> [YOUR SERVICE PROVIDER] -> Inbound Authentication Configuration -> OAuth / Open ID Connect Configuration
+            var client_id = "sT6zt0PJ4H8G9cnRyO8L4yH5IsEa";
+            
+            //Get this URL from your service provider. It has to be the exact the same. Don't miss slashes for example "/" at the end 
+            // if you don't remember, edit your OAuth / Open ID Connect configuration and take it from
+            // Callback URL
+            var callback_url = "http://localhost:4200/";
+            
+            // update this variable with your wso2 is URL. It can be http://localhost:9443 if you are
+            // running it locally
+            var wso2_is_url = "https://wso2-is.devthinkers.com";
+            
+            // don't change it unless you know what params you want to add/update, like nonce for instance
+            var wso2_is_oauth2_uri = "/oauth2/authorize?response_type=id_token&scope=openid&nonce=1234";
+
+            function authorizeUrl( _wso2_is_url, _callback_url, _client_id ) {
+                // this is just for us to use the same method for both default and form post testing
+                if( ! _wso2_is_url ) _wso2_is_url = wso2_is_url;
+                if( ! _callback_url ) _callback_url = callback_url;
+                if( ! _client_id ) _client_id = client_id;
+
+                let url =  _wso2_is_url + wso2_is_oauth2_uri + "&client_id="+_client_id+"&redirect_uri=" + _callback_url;
+                console.log( url );
+                location.href = url;
+            }
+
+            function callOauthConnectAuthorization( _wso2_is_url, _callback_url, _client_id ) {
+                authorizeUrl( _wso2_is_url, _callback_url, _client_id );
+            }
+        </script>
+    </head>
+    <body>
+
+            <h2>WSO2 Identity Server Validation #1</h2>
+            <a href="javascript:authorizeUrl()">click</a>
+
+        </section>
+    </body>
+</html>
